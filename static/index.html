@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Ocean ARGO AI Agent</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <nav id="main-nav" class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/images/logo.png" alt="Logo" class="nav-logo">
+                <span class="nav-title">Indian Ocean ARGO AI Agent</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#/" class="nav-link" data-page="home">🏠 Home</a></li>
+                <li><a href="#/chat" class="nav-link" data-page="chat">🤖 AI Chat</a></li>
+                <li><a href="#/dashboard" class="nav-link" data-page="dashboard">📊 Dashboard</a></li>
+                <li><a href="#/auth" class="nav-link" data-page="auth">🔐 Sign In</a></li>
+                <li><a href="#/account" class="nav-link" data-page="account">👤 Account</a></li>
+            </ul>
+            <div class="nav-controls">
+                <select id="language-selector" class="language-selector">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="hi">🇮🇳 हिंदी</option>
+                    <option value="bn">🇧🇩 বাংলা</option>
+                    <option value="ta">🇮🇳 தமிழ்</option>
+                </select>
+                <button id="nav-toggle" class="nav-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main App Container -->
+    <main id="app" class="app-container">
+        <div class="loading-screen">
+            <div class="loading-spinner"></div>
+            <p>Loading Indian Ocean ARGO AI Agent...</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Indian Ocean ARGO AI Agent - Smart India Hackathon 2025</p>
+            <div class="footer-links">
+                <span id="system-status" class="system-status">🟢 System Online</span>
+                <span id="profile-count" class="profile-count">📊 Loading profiles...</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load Scripts in Order -->
+    <script src="scripts/utils/translations.js"></script>
+    <script src="scripts/utils/dom-helpers.js"></script>
+    <script src="scripts/utils/validators.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/state.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/router.js"></script>
+    <script src="scripts/components/home.js"></script>
+    <script src="scripts/components/chatbot.js"></script>
+    <script src="scripts/components/dashboard.js"></script>
+    <script src="scripts/components/auth.js"></script>
+    <script src="scripts/components/account.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>

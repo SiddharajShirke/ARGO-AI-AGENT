@@ -1,0 +1,513 @@
+/* Theme System - Ocean-inspired theme for Indian Ocean ARGO AI Agent */
+
+:root {
+    /* Primary Color Palette - Ocean Blues */
+    --ocean-blue: #667eea;
+    --ocean-deep: #764ba2;
+    --ocean-light: #a8c8f0;
+    --ocean-surface: #e6f3ff;
+    
+    /* Secondary Colors - Ocean Life */
+    --coral-orange: #ff6b6b;
+    --seaweed-green: #51cf66;
+    --whale-gray: #495057;
+    --pearl-white: #f8f9fa;
+    
+    /* Status Colors */
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    
+    /* Neutral Ocean Tones */
+    --sand-50: #fefefe;
+    --sand-100: #f8fafc;
+    --sand-200: #e5e7eb;
+    --sand-300: #d1d5db;
+    --sand-400: #9ca3af;
+    --sand-500: #6b7280;
+    --sand-600: #4b5563;
+    --sand-700: #374151;
+    --sand-800: #1f2937;
+    --sand-900: #111827;
+    
+    /* Typography Scale */
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-mono: 'Fira Code', Consolas, monospace;
+    
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Spacing Scale */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 50%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    
+    /* Z-Index Scale */
+    --z-dropdown: 1000;
+    --z-modal: 2000;
+    --z-toast: 3000;
+}
+
+/* Light Theme (Default) */
+body {
+    --bg-primary: linear-gradient(135deg, var(--ocean-blue) 0%, var(--ocean-deep) 100%);
+    --bg-secondary: var(--pearl-white);
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-overlay: rgba(255, 255, 255, 0.9);
+    
+    --text-primary: var(--sand-900);
+    --text-secondary: var(--sand-600);
+    --text-muted: var(--sand-500);
+    --text-inverse: white;
+    
+    --border-color: var(--sand-200);
+    --border-focus: var(--ocean-blue);
+}
+
+/* Dark Theme */
+body.theme-dark {
+    --bg-primary: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    --bg-secondary: var(--sand-900);
+    --bg-card: rgba(31, 41, 55, 0.95);
+    --bg-overlay: rgba(17, 24, 39, 0.9);
+    
+    --text-primary: var(--sand-100);
+    --text-secondary: var(--sand-300);
+    --text-muted: var(--sand-400);
+    --text-inverse: var(--sand-900);
+    
+    --border-color: var(--sand-700);
+    --border-focus: var(--ocean-light);
+}
+
+/* High Contrast Theme */
+body.theme-high-contrast {
+    --bg-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+    
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-inverse: #ffffff;
+    
+    --border-color: #000000;
+    --border-focus: #0066cc;
+    
+    --ocean-blue: #0066cc;
+    --ocean-deep: #004499;
+}
+
+/* Regional Theme Variations */
+
+/* Arabian Sea Theme */
+body.theme-arabian-sea {
+    --bg-primary: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    --ocean-blue: #1e40af;
+    --ocean-deep: #7c3aed;
+}
+
+/* Bay of Bengal Theme */
+body.theme-bay-bengal {
+    --bg-primary: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+    --ocean-blue: #059669;
+    --ocean-deep: #0d9488;
+}
+
+/* Equatorial Ocean Theme */
+body.theme-equatorial {
+    --bg-primary: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+    --ocean-blue: #dc2626;
+    --ocean-deep: #ea580c;
+}
+
+/* Language-Specific Adjustments */
+
+/* Hindi Font Support */
+body[lang="hi"] {
+    --font-family-primary: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+}
+
+/* Bengali Font Support */
+body[lang="bn"] {
+    --font-family-primary: 'Noto Sans Bengali', 'Segoe UI', sans-serif;
+}
+
+/* Tamil Font Support */
+body[lang="ta"] {
+    --font-family-primary: 'Noto Sans Tamil', 'Segoe UI', sans-serif;
+}
+
+/* Theme Utilities */
+.theme-transition {
+    transition: background-color var(--transition-base), 
+                color var(--transition-base), 
+                border-color var(--transition-base);
+}
+
+/* Animation Preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        --bg-primary: white;
+        --bg-secondary: white;
+        --bg-card: white;
+        --text-primary: black;
+        --text-secondary: #333;
+    }
+    
+    .notification-container,
+    .nav-toggle,
+    .chat-controls {
+        display: none !important;
+    }
+}
+
+/* Theme Switcher Component */
+.theme-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-switcher-trigger {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-2) var(--spacing-3);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.theme-switcher-trigger:hover {
+    background: var(--bg-overlay);
+}
+
+.theme-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-dropdown);
+    min-width: 150px;
+    padding: var(--spacing-2);
+}
+
+.theme-option {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+}
+
+.theme-option:hover,
+.theme-option.active {
+    background: var(--ocean-surface);
+    color: var(--ocean-blue);
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators */
+:focus {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+/* Skip links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 8px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    z-index: var(--z-toast);
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #7c3aed;
+    --secondary-color: #06b6d4;
+    --accent-color: #10b981;
+    
+    --gray-50: #171923;
+    --gray-100: #1a202c;
+    --gray-200: #2d3748;
+    --gray-300: #4a5568;
+    --gray-400: #718096;
+    --gray-500: #a0aec0;
+    --gray-600: #cbd5e0;
+    --gray-700: #e2e8f0;
+    --gray-800: #edf2f7;
+    --gray-900: #f7fafc;
+}
+
+/* Language-specific adjustments */
+[lang="hi"], [lang="bn"], [lang="ta"], [lang="te"] {
+    /* Increased line height for better readability with Devanagari/Tamil scripts */
+    line-height: 1.8;
+}
+
+[lang="hi"] {
+    font-family: 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[lang="bn"] {
+    font-family: 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[lang="ta"] {
+    font-family: 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+[lang="te"] {
+    font-family: 'Noto Sans Telugu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* RTL Support (if needed in future) */
+[dir="rtl"] {
+    text-align: right;
+}
+
+[dir="rtl"] .nav {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .chat-message.user {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000080;
+        --secondary-color: #800080;
+        --accent-color: #008000;
+        --gray-600: #000000;
+        --gray-200: #ffffff;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        background: white !important;
+    }
+    
+    .btn {
+        border: 1px solid #000 !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .nav,
+    .chat-input-area {
+        display: none !important;
+    }
+}
+
+/* Ocean Theme (Alternative) */
+.theme-ocean {
+    --primary-color: #0077be;
+    --secondary-color: #00a8cc;
+    --accent-color: #40e0d0;
+    background: linear-gradient(135deg, #0077be 0%, #00a8cc 50%, #40e0d0 100%);
+}
+
+/* Forest Theme (Alternative) */
+.theme-forest {
+    --primary-color: #228b22;
+    --secondary-color: #32cd32;
+    --accent-color: #90ee90;
+    background: linear-gradient(135deg, #228b22 0%, #32cd32 50%, #90ee90 100%);
+}
+
+/* Sunset Theme (Alternative) */
+.theme-sunset {
+    --primary-color: #ff6b35;
+    --secondary-color: #f7931e;
+    --accent-color: #ffdc00;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffdc00 100%);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Language Selector */
+.language-selector {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 100;
+}
+
+.language-selector:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    min-width: 120px;
+    z-index: 101;
+}
+
+.language-option {
+    display: block;
+    padding: 8px 12px;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.language-option:hover {
+    background: var(--gray-100);
+}
+
+.language-option.active {
+    background: var(--primary-color);
+    color: white;
+}

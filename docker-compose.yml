@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  # HTML + FastAPI service
+  web:
+    build: .
+    ports:
+      - "8002:8002"
+    environment:
+      - DATABASE_URL=postgresql://argo_user:argo_password@postgres:5432/indian_ocean_argo
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    depends_on:
+      - postgres
+      - chromadb
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - argo-network
+    restart: unless-stopped
+
+  # Database (unchanged)
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: indian_ocean_argo
+      POSTGRES_USER: argo_user
+      POSTGRES_PASSWORD: argo_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    command: postgres -c listen_addresses='*' -c max_connections=100
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U argo_user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - argo-network
+    restart: unless-stopped
+
+  # Vector Database (unchanged)  
+  chromadb:
+    image: chromadb/chroma:0.4.24
+    container_name: chromadb
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - CHROMA_HOST=0.0.0.0
+      - CHROMA_PORT=8000
+      - CHROMA_CORS_ALLOW_ORIGINS=["*"]
+      - PERSIST_DIRECTORY=/chroma/chroma
+      - ANONYMIZED_TELEMETRY=false
+      - ALLOW_RESET=true
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:8000/api/v1/heartbeat || exit 1" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - argo-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --bind 0.0.0.0 --appendonly yes --maxmemory 512mb
+    sysctls:
+      - net.core.somaxconn=511
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - argo-network
+    restart: unless-stopped
+
+networks:
+  argo-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  chroma_data:

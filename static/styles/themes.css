@@ -1,0 +1,190 @@
+/* Theme System - Ocean-inspired theme for Indian Ocean ARGO AI Agent */
+
+:root {
+    /* Primary Color Palette - Ocean Blues */
+    --ocean-blue: #667eea;
+    --ocean-deep: #764ba2;
+    --ocean-light: #a8c8f0;
+    --ocean-surface: #e6f3ff;
+    
+    /* Secondary Colors - Ocean Life */
+    --coral-orange: #ff6b6b;
+    --seaweed-green: #51cf66;
+    --whale-gray: #495057;
+    --pearl-white: #f8f9fa;
+    
+    /* Status Colors */
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+    
+    /* Neutral Ocean Tones */
+    --sand-50: #fefefe;
+    --sand-100: #f8fafc;
+    --sand-200: #e5e7eb;
+    --sand-300: #d1d5db;
+    --sand-400: #9ca3af;
+    --sand-500: #6b7280;
+    --sand-600: #4b5563;
+    --sand-700: #374151;
+    --sand-800: #1f2937;
+    --sand-900: #111827;
+}
+
+/* Light Theme (Default) */
+body {
+    --bg-primary: linear-gradient(135deg, var(--ocean-blue) 0%, var(--ocean-deep) 100%);
+    --bg-secondary: var(--pearl-white);
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-overlay: rgba(255, 255, 255, 0.9);
+    
+    --text-primary: var(--sand-900);
+    --text-secondary: var(--sand-600);
+    --text-muted: var(--sand-500);
+    --text-inverse: white;
+    
+    --border-color: var(--sand-200);
+    --border-focus: var(--ocean-blue);
+}
+
+/* Dark Theme */
+body.theme-dark {
+    --bg-primary: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    --bg-secondary: var(--sand-900);
+    --bg-card: rgba(31, 41, 55, 0.95);
+    --bg-overlay: rgba(17, 24, 39, 0.9);
+    
+    --text-primary: var(--sand-100);
+    --text-secondary: var(--sand-300);
+    --text-muted: var(--sand-400);
+    --text-inverse: var(--sand-900);
+    
+    --border-color: var(--sand-700);
+    --border-focus: var(--ocean-light);
+}
+
+/* High Contrast Theme */
+body.theme-high-contrast {
+    --bg-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-overlay: rgba(255, 255, 255, 0.95);
+    
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-inverse: #ffffff;
+    
+    --border-color: #000000;
+    --border-focus: #0066cc;
+    
+    --ocean-blue: #0066cc;
+    --ocean-deep: #004499;
+}
+
+/* Regional Theme Variations */
+
+/* Arabian Sea Theme */
+body.theme-arabian-sea {
+    --bg-primary: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    --ocean-blue: #1e40af;
+    --ocean-deep: #7c3aed;
+}
+
+/* Bay of Bengal Theme */
+body.theme-bay-bengal {
+    --bg-primary: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+    --ocean-blue: #059669;
+    --ocean-deep: #0d9488;
+}
+
+/* Equatorial Ocean Theme */
+body.theme-equatorial {
+    --bg-primary: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+    --ocean-blue: #dc2626;
+    --ocean-deep: #ea580c;
+}
+
+/* Language-Specific Adjustments */
+
+/* Hindi Font Support */
+body[lang="hi"] {
+    font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+}
+
+/* Bengali Font Support */
+body[lang="bn"] {
+    font-family: 'Noto Sans Bengali', 'Segoe UI', sans-serif;
+}
+
+/* Tamil Font Support */
+body[lang="ta"] {
+    font-family: 'Noto Sans Tamil', 'Segoe UI', sans-serif;
+}
+
+/* Theme Utilities */
+.theme-transition {
+    transition: background-color 0.25s ease, 
+                color 0.25s ease, 
+                border-color 0.25s ease;
+}
+
+/* Animation Preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .notification-container,
+    .nav-toggle,
+    .chat-controls {
+        display: none !important;
+    }
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus indicators */
+:focus {
+    outline: 2px solid var(--border-focus, #667eea);
+    outline-offset: 2px;
+}
+
+/* Skip links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: white;
+    color: #333;
+    padding: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    z-index: 3000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
